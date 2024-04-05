@@ -5,7 +5,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
+
+
 const SignUpPage = () => {
+
+
   return (
     <div className='min-h-screen flex justify-center items-center'>
         <Card>

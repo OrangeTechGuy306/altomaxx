@@ -30,11 +30,7 @@ const LoginPage = () => {
 
                     <Input type='password' placeholder='Confirm password' name='cpass' className='w-[300px] my-3' onChange={()=>{}}/>
 
-               
-
-                   
-
-                    <input type="submit" value={'Register'} className='py-2 px-10 rounded-lg bg-green text-white' />
+                    <input type="submit" value={'Login'} className='py-2 px-10 rounded-lg bg-green text-white' />
 
                     <div className='my-3'>
                         <small>Don&apos;t have an Account? <Link href={'/signup'}>Sign up</Link> </small>

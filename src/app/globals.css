@@ -83,3 +83,115 @@
 .bg-green{
   background: rgb(2, 144, 94);
 }
+
+.bg-red{
+  background: red;
+}
+
+
+/* HOME SECTION */
+.homeHeroSection{
+  background: url("/assets/herobg1.webp");
+  background-size: cover;
+}
+
+.menuIconsContainer{
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.homeAccountCard{
+  background: url("/assets/c4.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.homeAccountCard1{
+  background: url("/assets/c5.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.homeAccountCard2{
+  background: url("/assets/c6.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.homeAccountCard h1, .homeAccountCard small{
+  position: inherit;
+  z-index: 82;
+}
+
+.homeAccountCard1 h1, .homeAccountCard1 small{
+  position: inherit;
+  z-index: 82;
+}
+
+.homeAccountCard2 h1, .homeAccountCard2 small{
+  position: inherit;
+  z-index: 82;
+}
+
+.acOverlay{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  /* backdrop-filter: blur(2px); */
+}
+
+.vipCard{
+  background: url("/assets/c2.webp");
+  /* background-size: cover; */
+  background-position: center;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.vipCard h1, .vipCard small, .vipCard .vipBadge{
+  position: inherit;
+  z-index: 82;
+}
+.vipCard .vipBadge{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.vipCard:nth-child(2){
+  background: url("/assets/c5.jpg");
+}
+
+.bottomFlyerContainer{
+  background: url("/assets/herobg.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+
+
+/* FOOTER SECTION */
+.footer{
+  position: fixed;
+  bottom: 0;
+  background: white;
+  padding: 10px 0px;
+  z-index: 98439378;
+}
