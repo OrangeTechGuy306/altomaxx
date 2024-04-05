@@ -74,3 +74,12 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.bg-silver{
+  background: rgb(241, 241, 241);
+}
+
+.bg-green{
+  background: rgb(2, 144, 94);
+}
