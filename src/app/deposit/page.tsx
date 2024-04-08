@@ -50,7 +50,7 @@ const DepositPage = () => {
 
 
         <div className='flex flex-col justify-center items-center gap-5'>
-            <div className='flex gap-3'>
+            <div className='flex gap-3 flex-wrap '>
                 <Button className='w-[100px]' onClick={()=>{
                     setPrice(prices[0] as any)
                     setChoose(true)
@@ -68,7 +68,7 @@ const DepositPage = () => {
                     setChoose(true)
                 }}>8000</Button>
             </div>
-            <div  className='flex gap-3'>
+            <div  className='flex gap-3 flex-wrap'>
                 <Button className='w-[100px]' onClick={()=>{
                     setPrice(prices[4] as any)
                     setChoose(true)
@@ -86,7 +86,7 @@ const DepositPage = () => {
                     setChoose(true)
                 }}>60000</Button>
             </div>
-            <div  className='flex gap-3'>
+            <div  className='flex gap-3 flex-wrap'>
                 <Button className='w-[100px]' onClick={()=>{
                     setPrice(prices[8] as any)
                     setChoose(true)
