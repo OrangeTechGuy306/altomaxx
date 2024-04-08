@@ -14,6 +14,7 @@ import {
     DialogTitle,
     DialogTrigger,
   } from "@/components/ui/dialog"
+import Footer from '@/comps/footer'
 
 
 
@@ -164,7 +165,7 @@ const DepositPage = () => {
             </ol>
         </div>
 
-
+        <Footer/>
     </section>
   )
 }

@@ -26,24 +26,24 @@ const Footer = () => {
   return (
     <footer>
         
-        {user === null ? <div className="footer flex justify-around items-center gap-10 w-[100%]">
+       <div className="footer flex justify-around items-center gap-10 w-[100%]">
             <Link href={'/'}  className="flex flex-col justify-center items-center gap-2">
                 <MdHomeFilled size={20}/>
                 <small>Home</small>
             </Link>
-            <Link href={'/'}  className="flex flex-col justify-center items-center gap-2">
+            <Link href={'/products'}  className="flex flex-col justify-center items-center gap-2">
                 <FaBox size={20} />
                 <small>Products</small>
             </Link>
-            <Link href={'/'}  className="flex flex-col justify-center items-center gap-2">
+            <Link href={'/team'}  className="flex flex-col justify-center items-center gap-2">
                 <FaUsersLine size={20} />
                 <small>Team</small>
             </Link>
-            <Link href={'/'} className="flex flex-col justify-center items-center gap-2">
+            <Link href={'/profile'} className="flex flex-col justify-center items-center gap-2">
                 <FaUserTie size={20} />
                 <small>Profile</small>
             </Link>
-        </div> : null}
+        </div> : <div></div>
 
     </footer>
   )

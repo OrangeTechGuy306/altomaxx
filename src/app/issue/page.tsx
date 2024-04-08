@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
+import Footer from '@/comps/footer'
 
 
 
@@ -44,6 +45,7 @@ const IssuePage = () => {
                 </ul>
             </CardFooter>
         </Card>
+        <Footer/>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 import { Button } from '@/components/ui/button'
+import Footer from '@/comps/footer'
 import Image from 'next/image'
 import React from 'react'
 
@@ -52,6 +53,7 @@ const ProductPage = () => {
                 <Button>Buy</Button>
             </div>
         </div>
+        <Footer/>
     </div>
   )
 }

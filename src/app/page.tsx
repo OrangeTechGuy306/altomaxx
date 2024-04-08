@@ -10,6 +10,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import Footer from "@/comps/footer";
 
 
 
@@ -44,7 +45,7 @@ export default function Home() {
           <div className="homeHeroSection min-h-[50vh] ">
 
           </div>
-          <div className="flex justify-center items-center flex-wrap gap-3 py-2 mt-[-60px] menuIconsContainer">
+          <div className="flex justify-around items-center flex-wrap gap-3 py-2 mt-[-60px] menuIconsContainer">
               <Link href={"/deposit"} className="flex flex-col justify-center items-center gap-2">
                   <BsCashStack size={20} className="text-white" />
                   <small className="text-white text-sm">Make <br /> Deposit</small>
@@ -118,7 +119,7 @@ export default function Home() {
           </div>
        </Link>
 
-
+       <Footer/>
       </section>
   );
 }

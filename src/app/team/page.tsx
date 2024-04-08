@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
+import Footer from '@/comps/footer'
 import React from 'react'
 
 const TeamPage = () => {
@@ -107,6 +108,7 @@ const TeamPage = () => {
             </div>
 
         </div>
+        <Footer/>
     </div>
   )
 }
