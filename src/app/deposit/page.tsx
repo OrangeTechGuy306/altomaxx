@@ -155,7 +155,7 @@ const DepositPage = () => {
 
         <div className='mb-20'>
             <h1 className='text-center font-bold my-5'>Deposit instructions</h1>
-            <ol className='w-[40%] mx-auto bg-silver p-3 rounded-xl'>
+            <ol className='w-[40%] mx-auto bg-silver p-3 rounded-xl depositList'>
                 <li className='text-sm my-2'>.The recharge order amount must be consistent with the final payment amount. Inconsistency will result in failure.</li>
                 <li className='text-sm my-2'>The minimum recharge amount is ₦2000. If the amount is lower than the minimum amount, it will not be credited.</li>
                 <li className='text-sm my-2'> Please check the account information carefully when transferring money to avoid payment errors.</li>

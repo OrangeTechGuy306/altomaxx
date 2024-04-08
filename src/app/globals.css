@@ -275,3 +275,11 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.492);
 }
+
+
+@media screen and (max:width:800) {
+  .depositList{
+    width: 100%;
+    padding: 20px;
+  }
+}
