@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import SignUpPage from "./signup/page";
 import { BsCashStack } from "react-icons/bs";
@@ -7,6 +8,9 @@ import { FaRegCalendarAlt } from "react-icons/fa";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+
 
 
 
@@ -14,28 +18,49 @@ import { Badge } from "@/components/ui/badge";
 
 
 export default function Home() {
+
+
+
+    const navigate = useRouter()
+    const [user, setUser] = useState([])
+
+    const getUser= ()=>{
+        const curUser = JSON.parse(localStorage.getItem("user")as any)
+        if(!curUser){
+            navigate.push("/signup")
+        }else{
+            setUser(curUser);
+        }
+    }
+
+    useEffect(()=>{
+        getUser()
+    },[])
+
+
+
   return (
       <section>
           <div className="homeHeroSection min-h-[50vh] ">
 
           </div>
           <div className="flex justify-center items-center flex-wrap gap-3 py-2 mt-[-60px] menuIconsContainer">
-              <div className="flex flex-col justify-center items-center gap-2">
+              <Link href={"/deposit"} className="flex flex-col justify-center items-center gap-2">
                   <BsCashStack size={20} className="text-white" />
-                  <small className="text-white text-sm">Make Deposit</small>
-              </div>
-              <div className="flex flex-col justify-center items-center gap-2">
+                  <small className="text-white text-sm">Make <br /> Deposit</small>
+              </Link>
+              <Link href={"/withdraw"} className="flex flex-col justify-center items-center gap-2">
                   <BiMoneyWithdraw size={20} className="text-white"/>
-                  <small className="text-white">Withdraw Money</small>
-              </div>
-              <div className="flex flex-col justify-center items-center gap-2">
+                  <small className="text-white">Withdraw <br /> Money</small>
+              </Link>
+              <Link href={"/customer"} className="flex flex-col justify-center items-center gap-2">
                   <RiContactsLine size={20} className="text-white" />
-                  <small className="text-white">Customer service</small>
-              </div>
-              <div className="flex flex-col justify-center items-center gap-2">
+                  <small className="text-white">Customer <br /> service</small>
+              </Link>
+              <Link href={"/checkin"} className="flex flex-col justify-center items-center gap-2">
                   <FaRegCalendarAlt size={20} className="text-white"/>
-                  <small className="text-white">Daily Check-in</small>
-              </div>
+                  <small className="text-white">Daily <br /> Check-in</small>
+              </Link>
           </div>
 
           {/* USER ACCOUNTS */}
