@@ -11,33 +11,38 @@ import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Footer from "@/comps/footer";
+import axios from "axios";
+import { APIROUTE } from "@/utils/apiroutes";
+import { useUser } from "@/utils/getUser";
+import { useWallet } from "@/utils/wallet";
 
 
 
 
 
+interface walletType{
+    wallet: any
+}
 
 
 export default function Home() {
 
+    const [wallet, setWallet] = useState<walletType>()
+    // const {user} = useUser()
+    const {user, balance} = useWallet()
+    const [investment, setInvestment] = useState(0)
+    // const {}
 
-
-    const navigate = useRouter()
-    const [user, setUser] = useState([])
-
-    const getUser= ()=>{
-        const curUser = JSON.parse(localStorage.getItem("user")as any)
-        if(!curUser){
-            navigate.push("/signup")
-        }else{
-            setUser(curUser);
-        }
+    const fetInvestmentReturn = async()=>{
+        const currentUser = JSON.parse(localStorage.getItem("altomaxx") as any)
+        const {data} = await axios.get(`${APIROUTE}/invests/${currentUser?.username}`) 
+        setInvestment(data.msg)
     }
 
-    useEffect(()=>{
-        getUser()
-    },[])
-
+      useEffect(()=>{
+        fetInvestmentReturn()
+      },[])
+    
 
 
   return (
@@ -68,21 +73,24 @@ export default function Home() {
           <div className=" my-10">
               <h1 className="text-xl text-center">My Account</h1>
               <div className="my-5 flex flex-wrap justify-center items-center gap-2">
-                  <Card className="homeAccountCard text-center w-[120px] h-[120px] rounded-md">
-                      <h1 className="text-xl font-bold text-white">&#8358;20,000</h1>
-                      <small className="text-md text-white">Account Balance</small>
-                      <div className="acOverlay"></div>
-                  </Card>
+               
+                    <Card className="homeAccountCard text-center w-[120px] h-[120px] rounded-md">
+                        <h1 className="text-lg font-bold text-white">&#8358;{Intl.NumberFormat().format(parseInt(balance as any))}</h1>
+                        <small className="text-md text-white">Account Balance</small>
+                        <div className="acOverlay"></div>
+                    </Card>
+
+              
                   <Card className="homeAccountCard1 text-center w-[120px] h-[120px] rounded-md">
-                      <h1 className="text-xl font-bold text-white">&#8358;20,000</h1>
+                      <h1 className="text-lg font-bold text-white">&#8358;{Intl.NumberFormat().format(investment)}</h1>
                       <small className="text-md text-white">Today&apos;s Earnings</small>
                       <div className="acOverlay"></div>
                   </Card>
-                  <Card className="homeAccountCard2 text-center w-[120px] h-[120px] rounded-md">
-                      <h1 className="text-xl font-bold text-white">&#8358;20,000</h1>
+                  {/* <Card className="homeAccountCard2 text-center w-[120px] h-[120px] rounded-md">
+                      <h1 className="text-lg font-bold text-white">&#8358;20,000</h1>
                       <small className="text-md text-white">Total Earnings</small>
                       <div className="acOverlay"></div>
-                  </Card>
+                  </Card> */}
               </div>
           </div>
 
@@ -94,7 +102,7 @@ export default function Home() {
        <div>
         <Link href={''}>
           <Card className="vipCard text-center w-[80%] h-[150px] rounded-md mx-auto my-5">
-                <h1 className="text-xl font-bold text-white">Red and green</h1>
+                <h1 className="text-xl font-bold text-white">MD.TC Group</h1>
                 <small className="text-md text-white">VIP can participate</small>
                 <Badge className="bg-red text-white w-[50px] vipBadge">Hot</Badge>
                 <div className="acOverlay"></div>

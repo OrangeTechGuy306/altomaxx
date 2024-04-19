@@ -277,9 +277,98 @@
 }
 
 
+
+/* ADMIN PAGE DESIGN */
+
+/* SIDEBAR */
+.sidebar{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 15% 85%;
+}
+
+.sidebarContainer{
+  height: 100vh;
+  /* background: linear-gradient(); */
+}
+
+.sidebarContainer ul li{
+  transition: all .2s ease;
+}
+
+.sidebarContainer ul li:hover{
+  background: white;
+  border-radius: 10px 0px 0px 10px;
+  color: black;
+  box-shadow: 0 0 40px rgba(0,0,0,0.2);
+}
+
+
+
+/* PROFILE SECTION */
+
+.profileHeroSection{
+  background: url("/assets/pw.jpg");
+  background-size: contain;
+}
+
+.depositSection{
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.adminSection{
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+
+/* FORMS */
+.lFormContainer{
+  background: url("/assets/fbg2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.rFormContainer{
+  background: url("/assets/fbg2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.lformCard{
+  /* width: 0cqi; */
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.rformCard{
+  /* width: 0cqi; */
+  background: rgba(255, 255, 255, 0.1);
+}
+
 @media screen and (max-width:800px) {
   .depositList{
     width: 100%;
     padding: 20px;
   }
+
+  .withInstructionContainer{
+    width: 100%;
+  }
+
+  .depositList{
+    width:100%;
+  }
+
+  /* .sidebarContainer{
+    position: absolute;
+    display: none;
+  } */
+
+  /* .dashRight{
+    width: 100%;
+  } */
+
 }

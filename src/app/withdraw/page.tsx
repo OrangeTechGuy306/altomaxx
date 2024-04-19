@@ -11,8 +11,20 @@ import {
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { Toaster, toast } from "sonner";
+import { useWallet } from "@/utils/wallet";
+import axios from "axios";
+import { APIROUTE } from "@/utils/apiroutes";
+import { useUser } from "@/utils/getUser";
+
+
+
+
 
 const WithdrawalPage = () => {
+
+
   const banks = [
     {
       id: "1",
@@ -75,9 +87,29 @@ const WithdrawalPage = () => {
       code: "082",
     },
     {
+      id: "25",
+      name: "Kuda",
+      code: "112",
+    },
+    {
+      id: "28",
+      name: "Moniepoint",
+      code: "116",
+    },
+    {
+      id: "24",
+      name: "Opay",
+      code: "111",
+    },
+    {
       id: "13",
       name: "Providus Bank Plc",
       code: "101",
+    },
+    {
+      id: "26",
+      name: "Palmpay",
+      code: "114",
     },
     {
       id: "14",
@@ -131,13 +163,56 @@ const WithdrawalPage = () => {
     },
   ];
 
+  // const {user} = useUser()
+
+  const [info, setInfo] = useState({
+    amount:0,
+    acc_name: "",
+    account:0,
+  })
+
+  const [bankType, setBankType] = useState("")
+
+  const {amount, account, acc_name} = info
+  // const [balance, setBalance] = useState(0)
+  const {user, balance} = useWallet()
+
+
+
+    const validateWithdrawal = (e:any)=>{
+        setInfo({...info,[e.target.name]:e.target.value})
+    }
+
+    const handleWithdrawal = async(e:any)=>{
+      if(bankType.trim() === "" || amount === 0 || account === 0 || acc_name.trim() === "" ){
+        toast.error("all field are required to make withdrawal")
+      }else if(amount < 2000 ){
+        toast.error("Minimum withdrawal is N2,000")
+      }else if(balance && amount > balance){
+        toast.error("Insufficient Fund")
+      }else{
+        const {data} = await axios.post(`${APIROUTE}/withdrawal`, {amount, acc_name, account, bankType, username:user?.username })
+        if(data.status === true){
+            toast.success(data.msg)
+        }else{
+          toast.error("something went wrong")
+        }
+      }
+  
+    }
+   
+
+    useEffect(() => {
+        // getUserWallet()
+    }, [])
+
   return (
     <div>
       <div className="withdrawalHeroSection min-h-[50vh] text-white">
         <div className="flex justify-start items-center gap-3">
           <BiSolidWallet size={40} color="white" />
           <div>
-            <h1 className="text-xl font-bold">&#8358; 20000</h1>
+            <h1 className="text-xl font-bold">&#8358;{balance} </h1>
             <small>Account Balance</small>
           </div>
         </div>
@@ -145,7 +220,8 @@ const WithdrawalPage = () => {
 
       <div className="my-10 flex justify-center">
         <div>
-          <Select>
+          <Toaster richColors position="top-right" />
+          <Select name="bankType" onValueChange={(e:any)=>setBankType(e)}>
             <SelectTrigger className="w-[300px]">
               <SelectValue placeholder="Choose bank to transfer" />
             </SelectTrigger>
@@ -153,28 +229,44 @@ const WithdrawalPage = () => {
               <SelectGroup>
                 <SelectLabel>Choose your bank</SelectLabel>
                 {banks.map((bank, i) => (
-                  <SelectItem value={bank["name"]} key={i}>
+                  <SelectItem value={bank["name"]} key={i} >
                     {bank["name"]}
                   </SelectItem>
                 ))}
               </SelectGroup>
             </SelectContent>
           </Select>
-          <div className="flex justify-start items-center my-3">
-            <h3 className="bg-silver py-2 px-3">&#8358;</h3>
+        
+            <div className="flex justify-start items-center my-3">
+              <h3 className="bg-silver py-2 px-3">&#8358;</h3>
+              <Input
+                type="number"
+                placeholder="Enter Amount to withdraw"
+                name="amount"
+                className="w-[265px]"
+                onChange={validateWithdrawal}
+              />
+            </div>
             <Input
-              type="text"
-              placeholder="Enter Amount to withdraw"
-              name="mobile"
-              className="w-[265px]"
-              onChange={() => {}}
-            />
-          </div>
-          <Button>Withdraw now</Button>
+                type="text"
+                placeholder="Enter Account Name"
+                name="acc_name"
+                className="w-[300px] my-3"
+                onChange={validateWithdrawal}
+              />
+            <Input
+                type="number"
+                placeholder="Enter Account NO."
+                name="account"
+                className="w-[300px] my-3"
+                onChange={validateWithdrawal}
+              />
+            <Button onClick={handleWithdrawal}>Withdraw now</Button>
+   
         </div>
       </div>
 
-      <div className="w-[450px] mx-auto my-10 p-3">
+      <div className="w-[450px] mx-auto my-10 p-3 withInstructionContainer">
         <h1 className="font-bold my-3">Withdrawal instructions</h1>
         <small>
           1. Minimum withdrawal amount ₦1500 <br />

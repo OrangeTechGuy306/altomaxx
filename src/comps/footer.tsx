@@ -5,15 +5,20 @@ import { FaBox } from "react-icons/fa";
 import { FaUsersLine } from "react-icons/fa6";
 import { FaUserTie } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 
 const Footer = () => {
+
+
+    
+    const navigate = useRouter()
     const [user, setUser] = useState([])
 
     const getUser= ()=>{
-        const curUser = JSON.parse(localStorage.getItem("user")as any)
+        const curUser = JSON.parse(localStorage.getItem("altomaxx")as any)
         if(!curUser){
-            return
+            navigate.push("/signup")
         }else{
             setUser(curUser);
         }

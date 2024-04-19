@@ -19,7 +19,7 @@ const page = () => {
             </div>
         </div>
         <div className="flex flex-col items-center">
-            <Link href={""} className='flex justify-between items-center w-[300px] my-3 shadow-md py-3 px-2'>
+            <Link href={"https://t.me/mdtc_altomaxx_tech"} className='flex justify-between items-center w-[300px] my-3 shadow-md py-3 px-2'>
                 <div className="flex gap-3 items-center">
                     <Image src={"/assets/s3.png"} alt="" width={40} height={40}/>
                     <p className="text-lg">Telegram</p>
@@ -33,14 +33,14 @@ const page = () => {
                 </div>
                 <MdKeyboardArrowRight size={40} />
             </Link>
-            <Link href={""} className='flex justify-between items-center w-[300px] my-3 shadow-md py-3 px-2'>
+            <Link href={"https://t.me/mdtc_altomaxx_tech"} className='flex justify-between items-center w-[300px] my-3 shadow-md py-3 px-2'>
                 <div className="flex gap-3 items-center">
                     <Image src={"/assets/s3.png"} alt="" width={40} height={40}/>
                     <p className="text-lg">Telegram Channel</p>
                 </div>
                 <MdKeyboardArrowRight size={40} />
             </Link>
-            <Link href={""} className='flex justify-between items-center w-[300px] mt-3 mb-10 shadow-md py-3 px-2'>
+            <Link href={"https://t.me/mdtc_altomaxx_tech"} className='flex justify-between items-center w-[300px] mt-3 mb-10 shadow-md py-3 px-2'>
                 <div className="flex gap-3 items-center">
                     <Image src={"/assets/s3.png"} alt="" width={40} height={40}/>
                     <p className="text-lg">Telegram Group</p>
